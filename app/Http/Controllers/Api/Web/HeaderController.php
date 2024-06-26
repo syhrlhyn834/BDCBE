@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Controllers\Api\Web;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\HeaderResource;
+use App\Models\Header;
+
+class HeaderController extends Controller
+{
+    public function index()
+    {
+        $headers = Header::latest()->get();
+
+        //return with Api Resource
+        return new HeaderResource(true, 'List Data Sliders', $headers);
+    }
+}

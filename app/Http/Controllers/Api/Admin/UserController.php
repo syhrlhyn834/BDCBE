@@ -37,7 +37,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name'     => 'required',
             'email'    => 'required|unique:users',
-            'nomor'    => 'required|unique:users',
+            'nomor'    => 'required|numeric|digits_between:1,15|unique:users',
             'password' => 'required'
         ]);
 
@@ -93,7 +93,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name'     => 'required',
             'email'    => 'required|unique:users,email,'.$user->id,
-            'nomor'    => 'required|unique:users,nomor,'.$user->id,
+            'nomor'    => 'required|numeric|digits_between:1,15|unique:users,nomor,'.$user->id,
         ]);
 
         if ($validator->fails()) {

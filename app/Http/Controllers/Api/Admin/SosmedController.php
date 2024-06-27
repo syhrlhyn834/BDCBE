@@ -91,12 +91,15 @@ class SosmedController extends Controller
     }
 
     public function destroy($id)
-    {
-        $sosmed = Sosmed::find($id);
-        if (!$sosmed) {
-            return new SosmedResource(false, 'Data Sosmed Tidak Ditemukan', null);
-        }
-
-        return new SosmedResource(true, 'Data Sosmed Berhasil Dihapus!', null);
+{
+    $sosmed = Sosmed::find($id);
+    if (!$sosmed) {
+        return new SosmedResource(false, 'Data Sosmed Tidak Ditemukan', null);
     }
+
+    $sosmed->delete(); // Menghapus data dari database
+
+    return new SosmedResource(true, 'Data Sosmed Berhasil Dihapus!', null);
+}
+
 }

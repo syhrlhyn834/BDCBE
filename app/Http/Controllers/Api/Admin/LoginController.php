@@ -44,7 +44,7 @@ class LoginController extends Controller
             //response login "failed"
             return response()->json([
                 'success' => false,
-                'message' => 'Login or Password is incorrect'
+                'message' => 'Email/Nomor Telepon or Password is incorrect'
             ], 401);
 
         }

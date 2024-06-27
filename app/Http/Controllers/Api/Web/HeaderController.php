@@ -13,6 +13,6 @@ class HeaderController extends Controller
         $headers = Header::latest()->get();
 
         //return with Api Resource
-        return new HeaderResource(true, 'List Data Sliders', $headers);
+        return new HeaderResource(true, 'List Data Header', $headers);
     }
 }

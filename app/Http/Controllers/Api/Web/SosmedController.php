@@ -13,6 +13,6 @@ class SosmedController extends Controller
         $sosmeds = Sosmed::latest()->get();
 
         //return with Api Resource
-        return new SosmedResource(true, 'List Data Sliders', $sosmeds);
+        return new SosmedResource(true, 'List Data Sosmed', $sosmeds);
     }
 }

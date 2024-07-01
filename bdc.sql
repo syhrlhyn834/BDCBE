@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2024 at 04:22 PM
+-- Generation Time: Jul 01, 2024 at 09:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,6 +24,54 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `abouts`
+--
+
+CREATE TABLE `abouts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `description`, `created_at`, `updated_at`) VALUES
+(1, '<h2>Bytedevcode</h2><p>… Going back to the corner where I first saw you<br>Gonna camp in my sleeping bag, I\'m not gonna move<br>Got some words on cardboard, got your picture in my hand<br>Saying, \"If you see this girl, can you tell her where I am?\"<br>Some try to hand me money, they don\'t understand<br>I\'m not broke, I\'m just a broken hearted man<br>I know it makes no sense but what else can I do<br>How can I move on when I\'m still in love with you</p><p>… \'Cause if one day you wake up and find that you\'re missing me<br>And your heart starts to wonder where on this Earth I could be<br>Thinkin\' maybe you\'ll come back here to the place that we\'d meet<br>And you\'ll see me waiting for you on our corner of the street<br>So I\'m not moving, I\'m not moving</p><p>… Policeman says, \"Son, you can\'t stay here\"<br>I said, \"There\'s someone I\'m waiting for if it\'s a day, a month, a year\"<br>Gotta stand my ground even if it rains or snows<br>If she changes her mind, this is the first place she will go</p><p>… \'Cause if one day you wake up and find that you\'re missing me<br>And your heart starts to wonder where on this Earth I could be<br>Thinking maybe you\'ll come back here to the place that we\'d meet<br>And you\'ll see me waiting for you on our corner of the street<br>So I\'m not moving, I\'m not moving<br>I\'m not moving, I\'m not moving</p><p>… People talk about the guy that\'s waiting on a girl<br>There are no holes in his shoes but a big hole in his world</p><p>… Maybe I\'ll get famous as the man who can\'t be moved</p>', '2024-07-01 05:02:54', '2024-07-01 09:39:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `anggotas`
+--
+
+CREATE TABLE `anggotas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `posisi` varchar(255) NOT NULL,
+  `umur` varchar(255) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `anggotas`
+--
+
+INSERT INTO `anggotas` (`id`, `name`, `slug`, `posisi`, `umur`, `alamat`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(2, 'Syahril Haryono', 'syahril-haryono', 'IT Security', '21', 'Dimana aja', 'Tempat penyimpanan data-data milik Syahril Haryono. Kebijakan individu berlaku.', '2BDDyUYUdpdwmRRfIzvajtFGoAlBHinNbLgMnkIq.png', '2024-07-01 02:26:47', '2024-07-01 02:26:47'),
+(4, 'Daffa Takarai', 'daffa-takarai', 'Founder', '40', 'JL. Pekalongan, No.21 Bandung, Jawa Barat.', 'Ini adalah deskripsi singkat mengenai data diri saya', 'fzosv1Do0c85j5wUrFRFdgEBnCpFimGc6cxCFdZk.png', '2024-07-01 03:57:22', '2024-07-01 03:57:22'),
+(5, 'Renald Mangkualam', 'renald-mangkualam', 'IT Security', '50', 'Jakarta', 'SA HJDASD ASASD ASD ASDAS\r\nSA DASD ASAD SD', 'uFujxFdhvxrbcaNugmxEsSLf2v1ODtwPCuIV4jHZ.png', '2024-07-01 04:08:38', '2024-07-01 04:16:39');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `blogs`
 --
 
@@ -40,6 +88,15 @@ CREATE TABLE `blogs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `blogs`
+--
+
+INSERT INTO `blogs` (`id`, `title`, `slug`, `category_id`, `user_id`, `content`, `image`, `description`, `created_at`, `updated_at`) VALUES
+(4, 'Blog 1', 'blog-1', 4, 1, '<p>&nbsp;</p><p>Blog asdasdas dasdasd</p>', 'DzMYJc7iel53bGEzEsHcecilacndtNct8WOs3WyN.png', 'Blog 1', '2024-06-26 12:20:08', '2024-06-27 02:31:04'),
+(5, 'Valorant 2', 'valorant-2', 3, 1, '<p>GAME VALORANT</p>', '9hKh2LsauAD8M6n2Y5cZB0FBtpzhX0aiciSSpi3c.png', 'GAME VALORANT YANG ADA DI INDONESIA', '2024-06-27 01:37:07', '2024-06-27 01:37:07'),
+(6, 'Blog 3', 'blog-3', 5, 1, '<p>Blog 3</p>', 'YL9hf8NNJip5ulAc3wwGMFVSdCyvgLuY12eDYSaY.png', 'Blog 3', '2024-06-27 02:41:43', '2024-06-27 02:41:43');
+
 -- --------------------------------------------------------
 
 --
@@ -51,6 +108,13 @@ CREATE TABLE `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cache`
+--
+
+INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
+('xPY9JoJdMH19OsF3', 's:7:\"forever\";', 2034795466);
 
 -- --------------------------------------------------------
 
@@ -84,9 +148,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `image`, `created_at`, `updated_at`) VALUES
-(2, 'Internet', 'internet', '7Yagzde2qjUoHlCJt6TV7MTj5yX5oyVqfkl6coLh.png', '2024-06-26 06:15:41', '2024-06-26 06:15:41'),
 (3, 'Tekhnologi', 'tekhnologi', '2wE4BFTt3O1HXsvvCelTpYimBJzBnTEYUqjeU7J3.png', '2024-06-26 06:15:51', '2024-06-26 06:15:51'),
-(4, 'Informasi', 'informasi', 'HXZaEATwMeCFL086VLd1TDYsjzbvs1LJUVLm7duW.png', '2024-06-26 06:16:06', '2024-06-26 06:16:06');
+(4, 'Informasi', 'informasi', 'iS5ldPo8SWuDdWzYO5n6n774vKiXXtpBzMJUDRVF.png', '2024-06-26 06:16:06', '2024-06-26 08:14:11'),
+(5, 'Pendidikan', 'pendidikan', 'Nwp1zkyY5zxAinpz1b2BousoV1TFtx6Wo775rjql.png', '2024-06-26 08:14:29', '2024-06-26 08:14:29');
 
 -- --------------------------------------------------------
 
@@ -114,9 +178,18 @@ CREATE TABLE `footers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `alamat` text NOT NULL,
+  `kontak` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `footers`
+--
+
+INSERT INTO `footers` (`id`, `name`, `description`, `alamat`, `kontak`, `created_at`, `updated_at`) VALUES
+(1, 'Copyright by Syahril Haryono njjhbhbh', 'Ini deskripsii', 'Asrama Brimob', '+6281990', NULL, '2024-07-01 02:36:23');
 
 -- --------------------------------------------------------
 
@@ -130,9 +203,17 @@ CREATE TABLE `headers` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL,
+  `image2` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `headers`
+--
+
+INSERT INTO `headers` (`id`, `title`, `name`, `description`, `image`, `image2`, `created_at`, `updated_at`) VALUES
+(1, 'Syahril', 'Bytedevcode', 'Ini deskripsi website nya bytedevcode', 'YEO3yNoxNqA7lHPMpLxEdq77gdz98LhB8HD7Cy2s.jpg', 'BQwIMWOHjK3IWKPZgD3Xro0oDa9XTDse9PF5DNJh.jpg', NULL, '2024-07-01 19:11:41');
 
 -- --------------------------------------------------------
 
@@ -195,7 +276,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (23, '2024_06_26_123334_create_footers_table', 1),
 (24, '2024_06_26_123346_create_headers_table', 1),
 (25, '2024_06_26_123406_create_sosmeds_table', 1),
-(26, '2024_06_26_125330_create_personal_access_tokens_table', 1);
+(26, '2024_06_26_125330_create_personal_access_tokens_table', 1),
+(27, '2024_07_01_084225_create_anggotas_table', 2),
+(28, '2024_07_01_114824_create_abouts_table', 3);
 
 -- --------------------------------------------------------
 
@@ -229,6 +312,13 @@ CREATE TABLE `sliders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `image`, `created_at`, `updated_at`) VALUES
+(2, '8rwQCPYSaholdjRNhOhUXPjZQoneVgOetvZpMfvU.png', '2024-06-26 13:10:51', '2024-06-26 13:10:51');
+
 -- --------------------------------------------------------
 
 --
@@ -250,7 +340,9 @@ CREATE TABLE `sosmeds` (
 --
 
 INSERT INTO `sosmeds` (`id`, `logo`, `name`, `url`, `username`, `created_at`, `updated_at`) VALUES
-(1, '<i class=\"bi bi-instagram\"></i>', 'Facebook', 'https://facebook.com', 'syahrilh.h', '2024-06-26 06:54:36', '2024-06-26 06:55:13');
+(1, 'bi bi-instagram', 'Instagram', 'https://instagram.com', 'syahrilh.h', '2024-06-26 06:54:36', '2024-06-26 13:42:41'),
+(3, 'bi bi-facebook', 'Facebook', 'https://facebook.com', 'syahrilh.h', '2024-06-26 13:38:32', '2024-06-26 13:42:31'),
+(4, 'bi bi-twitter', 'Twitter', 'https://twitter.com', 'vghvhvhgvgh', '2024-06-27 02:04:49', '2024-06-27 02:04:49');
 
 -- --------------------------------------------------------
 
@@ -280,6 +372,18 @@ INSERT INTO `users` (`id`, `name`, `email`, `nomor`, `password`, `email_verified
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `abouts`
+--
+ALTER TABLE `abouts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `anggotas`
+--
+ALTER TABLE `anggotas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `blogs`
@@ -377,16 +481,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `abouts`
+--
+ALTER TABLE `abouts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `anggotas`
+--
+ALTER TABLE `anggotas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -398,13 +514,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `footers`
 --
 ALTER TABLE `footers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `headers`
 --
 ALTER TABLE `headers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -416,7 +532,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -428,19 +544,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sosmeds`
 --
 ALTER TABLE `sosmeds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

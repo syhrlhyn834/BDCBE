@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Anggota;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         $blogs      = Blog::count();
         $categories = Category::count();
         $users      = User::count();
+        $anggotas    = Anggota::count();
 
         return response()->json([
             'success' => true,
@@ -26,7 +28,8 @@ class DashboardController extends Controller
             'data' => [
                 'blogs'      => $blogs,
                 'categories' => $categories,
-                'users'      => $users
+                'users'      => $users,
+                'anggotas'      => $anggotas
             ],
         ], 200);
     }

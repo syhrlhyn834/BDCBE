@@ -15,6 +15,6 @@ class Footer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description'
+        'name', 'description', 'alamat', 'kontak'
     ];
 }

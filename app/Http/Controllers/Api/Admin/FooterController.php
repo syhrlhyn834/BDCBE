@@ -20,14 +20,19 @@ class FooterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'alamat' => 'required',
+            'kontak' => 'required'
+
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
         $footer = Footer::create([
             'name'      => $request->name,
-            'description' => $request->description
+            'description' => $request->description,
+            'alamat' => $request->alamat,
+            'kontak' => $request->kontak
         ]);
         return new FooterResource(true, 'Data Footer Berhasil Disimpan!', $footer);
 }
@@ -48,7 +53,9 @@ public function update(Request $request, $id)
 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'alamat' => 'required',
+            'kontak' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -58,7 +65,9 @@ public function update(Request $request, $id)
 
         $footer->update([
             'name'      => $request->name,
-            'description' => $request->description
+            'description' => $request->description,
+            'alamat' => $request->alamat,
+            'kontak' => $request->kontak
         ]);
 
         return new FooterResource(true, 'Data Footer Berhasil Diupdate!', $footer);

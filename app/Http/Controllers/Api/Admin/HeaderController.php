@@ -20,6 +20,7 @@ class HeaderController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'image' => 'required|image|mimes:jpeg,jpg,png|max:2000',
+            'image2' => 'required|image|mimes:jpeg,jpg,png|max:2000',
             'title' => 'required',
             'name' => 'required',
             'description' => 'required'
@@ -33,6 +34,7 @@ class HeaderController extends Controller
 
         $header = Header::create([
             'image'    => $image->hashName(),
+            'image2'    => $image->hashName(),
             'title'     => $request->title,
             'name'      => $request->name,
             'description' => $request->description
@@ -56,6 +58,7 @@ public function update(Request $request, $id)
 
     $validator = Validator::make($request->all(), [
         'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2000',
+        'image2' => 'nullable|image|mimes:jpeg,jpg,png|max:2000',
         'title' => 'required',
         'name' => 'required',
         'description' => 'required'
@@ -65,11 +68,20 @@ public function update(Request $request, $id)
         return response()->json($validator->errors(), 422);
     }
 
+    // Update image1 if provided
     if ($request->file('image')) {
-        Storage::disk('local')->delete('public/headers/' . basename($header->image));
+        Storage::disk('public')->delete('headers/' . basename($header->image));
         $image = $request->file('image');
-        $image->storeAs('public/headers/', $image->hashName());
+        $image->storeAs('public/headers', $image->hashName());
         $header->image = $image->hashName();
+    }
+
+    // Update image2 if provided
+    if ($request->file('image2')) {
+        Storage::disk('public')->delete('headers/' . basename($header->image2));
+        $image2 = $request->file('image2');
+        $image2->storeAs('public/headers', $image2->hashName());
+        $header->image2 = $image2->hashName();
     }
 
     $header->update([

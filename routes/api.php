@@ -26,6 +26,12 @@ Route::prefix('admin')->group(function () {
         //Blogs
         Route::apiResource('/blogs', App\Http\Controllers\Api\Admin\BlogController::class);
 
+         //Abouts
+         Route::apiResource('/abouts', App\Http\Controllers\Api\Admin\AboutController::class);
+
+        //Anggota
+        Route::apiResource('/anggotas', App\Http\Controllers\Api\Admin\AnggotaController::class);
+
         //Sliders
         Route::apiResource('/sliders', App\Http\Controllers\Api\Admin\SliderController::class);
 
@@ -59,6 +65,12 @@ Route::get('/categories/{slug}', [App\Http\Controllers\Api\Web\CategoryControlle
 //categories sidebar
 Route::get('/categorySidebar', [App\Http\Controllers\Api\Web\CategoryController::class, 'categorySidebar']);
 
+//index anggota
+Route::get('/anggotas', [App\Http\Controllers\Api\Web\AnggotaController::class, 'index']);
+
+//show anggota
+Route::get('/anggotas/{slug}', [App\Http\Controllers\Api\Web\AnggotaController::class, 'show']);
+
 //index blogs
 Route::get('/blogs', [App\Http\Controllers\Api\Web\BlogController::class, 'index']);
 
@@ -70,6 +82,12 @@ Route::get('/blogHomepage', [App\Http\Controllers\Api\Web\BlogController::class,
 
 //store image
 Route::post('/blogs/storeImage', [App\Http\Controllers\Api\Web\BlogController::class, 'storeImageBlog']);
+
+//index about
+Route::get('/abouts', [App\Http\Controllers\Api\Web\AboutController::class, 'index']);
+
+//store image
+Route::post('/abouts/storeImage', [App\Http\Controllers\Api\Web\AboutController::class, 'storeImageAbout']);
 
 //index sliders
 Route::get('/sliders', [App\Http\Controllers\Api\Web\SliderController::class, 'index']);

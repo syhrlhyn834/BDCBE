@@ -19,8 +19,8 @@ class HeaderController extends Controller
      public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'image' => 'required|image|mimes:jpeg,jpg,png|max:2000',
-            'image2' => 'required|image|mimes:jpeg,jpg,png|max:2000',
+            'image' => 'required|image|mimes:jpeg,jpg,png,webp',
+            'image2' => 'required|image|mimes:jpeg,jpg,png,webp',
             'title' => 'required',
             'name' => 'required',
             'description' => 'required'
@@ -57,8 +57,8 @@ public function update(Request $request, $id)
     }
 
     $validator = Validator::make($request->all(), [
-        'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2000',
-        'image2' => 'nullable|image|mimes:jpeg,jpg,png|max:2000',
+        'image' => 'nullable|image|mimes:jpeg,jpg,png,webp',
+        'image2' => 'nullable|image|mimes:jpeg,jpg,png,webp',
         'title' => 'required',
         'name' => 'required',
         'description' => 'required'

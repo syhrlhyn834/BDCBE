@@ -37,7 +37,7 @@ class AnggotaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'image'    => 'nullable|image|mimes:jpeg,jpg,png|max:2000',
+            'image'    => 'nullable|image|mimes:jpeg,jpg,png,webp',
             'name'     => 'required|unique:anggotas',
             'posisi' => 'required',
             'umur'     => 'nullable|numeric',

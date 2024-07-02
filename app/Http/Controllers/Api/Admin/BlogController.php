@@ -104,7 +104,8 @@ class BlogController extends Controller
             'title'         => 'required|unique:blogs,title,'.$blog->id,
             'category_id'   => 'required',
             'content'       => 'required',
-            'description'   => 'required'
+            'description'   => 'required',
+            'image'  => 'nullable|image|mimes:jpeg,jpg,png,webp'
         ]);
 
         if ($validator->fails()) {

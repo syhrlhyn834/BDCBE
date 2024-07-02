@@ -106,7 +106,8 @@ class AnggotaController extends Controller
             'posisi'   => 'required',
             'umur'     => 'nullable|numeric',
             'alamat'   => 'nullable',
-            'description' => 'nullable'
+            'description' => 'nullable',
+            'image'  => 'nullable|image|mimes:jpeg,jpg,png,webp'
         ]);
 
         if ($validator->fails()) {
